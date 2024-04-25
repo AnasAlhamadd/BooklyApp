@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled1/Fuature/home/presintaion/views/widget/cutomapp_bar.dart';
+import 'package:untitled1/Fuature/home/presintaion/views/widget/custom_app_bar.dart';
 import 'package:untitled1/Fuature/home/presintaion/views/widget/featurelistitems.dart';
 import 'package:untitled1/Fuature/home/presintaion/views/widget/list_best_seller_viewitems.dart';
 import 'package:untitled1/constant.dart';
@@ -17,7 +17,7 @@ class HomePageViewBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.0),
+                padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 25.0),
                 child: CustomAppBar(),
               ),
               const SizedBox(

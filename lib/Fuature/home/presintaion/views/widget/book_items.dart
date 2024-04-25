@@ -16,7 +16,7 @@ class CustomBookItems extends StatelessWidget {
               image: const DecorationImage(
                 image: AssetImage(AppAssets.ktest),
               ),
-              borderRadius: BorderRadius.circular(18)),
+              borderRadius: BorderRadius.circular(16)),
         ),
       ),
     );

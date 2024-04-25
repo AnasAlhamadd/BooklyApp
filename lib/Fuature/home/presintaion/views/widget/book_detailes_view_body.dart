@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:untitled1/Fuature/home/presintaion/views/widget/book_detailes_view_app_bar.dart';
 import 'package:untitled1/Fuature/home/presintaion/views/widget/books_details_section.dart';
-import 'package:untitled1/Fuature/home/presintaion/views/widget/smiller_books_section.dart';
+import 'package:untitled1/Fuature/home/presintaion/views/widget/simmler_books_section.dart';
 import 'package:untitled1/constant.dart';
 
 class BookdetailesViewBody extends StatelessWidget {
