@@ -1,0 +1,20 @@
+import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
+import 'package:untitled1/Fuature/home/data/model/bookmodel/bookmodel.dart';
+import 'package:untitled1/Fuature/home/data/repo/home_repo.dart';
+
+part 'feature_newest_books_state.dart';
+
+class FeatureNewestBooksCubit extends Cubit<FeatureNewestBooksState> {
+  FeatureNewestBooksCubit(this.homeRepo) : super(FeatureNewestBooksInitial());
+  final HomeRepo homeRepo;
+  featchFeatureBooks() async {
+    emit(FeatureNewestBooksLoading());
+    var result = await homeRepo.fetchFeatureBooks();
+    result.fold((faliure) {
+      emit(FeatureNewestBooksFaliure(faliure.errMesage));
+    }, (books) {
+      emit(FeatureNewestBooksSuccess(books));
+    });
+  }
+}
