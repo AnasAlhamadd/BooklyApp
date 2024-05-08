@@ -9,23 +9,29 @@ class HomeRepoImplement implements HomeRepo {
   //! Define Services
 
   final ApiServices services;
-  HomeRepoImplement({required this.services});
+  HomeRepoImplement(this.services);
 
   //! Featch Feature Books
 
   @override
   Future<Either<Faliure, List<Bookmodel>>> fetchFeatureBooks() async {
     try {
-      var data = await services.get(
-          endPoints: 'volumes?Filtering=free-ebooks&q=subject:sport');
+      Map<String, dynamic> data = await services.get(
+          endPoints: 'volumes?Filtering=free-ebooks&q=computer science');
       List<Bookmodel> books = [];
-      books.add(Bookmodel.fromJson(data['items']));
+      books.add(
+        Bookmodel.fromJson(data),
+      );
       return right(books);
     } catch (e) {
       if (e is DioException) {
-        return left(ServerFaliure.fromDioError(e));
+        return left(
+          ServerFaliure.fromDioError(e),
+        );
       }
-      return left(ServerFaliure(e.toString()));
+      return left(
+        ServerFaliure('Oops Please Try Agin'),
+      );
     }
   }
 
@@ -33,17 +39,44 @@ class HomeRepoImplement implements HomeRepo {
   @override
   Future<Either<Faliure, List<Bookmodel>>> fetchNewastBooks() async {
     try {
-      var data = await services.get(
+      Map<String, dynamic> data = await services.get(
           endPoints:
-              'volumes?Filtering=free-ebooks&q=subject:sport&Sorting=newest');
+              'volumes?Filtering=free-ebooks&q=programming&Sorting=newest');
       List<Bookmodel> books = [];
-      books.add(Bookmodel.fromJson(data['items']));
+      books.add(
+        Bookmodel.fromJson(data),
+      );
       return right(books);
     } catch (e) {
       if (e is DioException) {
         return left(ServerFaliure.fromDioError(e));
       }
-      return left(ServerFaliure(e.toString()));
+      return left(
+        ServerFaliure('Oops Please Try Agin'),
+      );
+    }
+  }
+
+  @override
+  Future<Either<Faliure, List<Bookmodel>>> fetchSimmilerBooks(
+      {required String categore}) async {
+    try {
+      Map<String, dynamic> data = await services.get(
+          endPoints: 'volumes?q=programing&free-ebooks=true&Sorting=relevance');
+      List<Bookmodel> books = [];
+      books.add(
+        Bookmodel.fromJson(data),
+      );
+      return right(books);
+    } catch (e) {
+      if (e is DioException) {
+        return left(
+          ServerFaliure.fromDioError(e),
+        );
+      }
+      return left(
+        ServerFaliure('Oops Please Try Agin'),
+      );
     }
   }
 }

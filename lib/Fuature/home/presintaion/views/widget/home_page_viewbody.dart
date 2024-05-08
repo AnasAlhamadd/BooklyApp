@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:untitled1/Fuature/home/presintaion/views/widget/custom_app_bar.dart';
 import 'package:untitled1/Fuature/home/presintaion/views/widget/feature_books_listitems.dart';
-import 'package:untitled1/Fuature/home/presintaion/views/widget/list_best_seller_viewitems.dart';
+import 'package:untitled1/Fuature/home/presintaion/views/widget/list_newest_books_viewitems.dart';
 import 'package:untitled1/constant.dart';
 import 'package:untitled1/core/helper/styles.dart';
 
@@ -11,6 +11,7 @@ class HomePageViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
+      physics: const BouncingScrollPhysics(),
       slivers: [
         SliverToBoxAdapter(
           child: Column(
@@ -30,7 +31,7 @@ class HomePageViewBody extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Text(
-                  'Best Seller',
+                  'Newest Books',
                   style: Styles.styles30.copyWith(fontFamily: kFontfamily),
                 ),
               ),
@@ -43,7 +44,7 @@ class HomePageViewBody extends StatelessWidget {
         const SliverFillRemaining(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 8.0),
-            child: ListBestSelleViewItems(),
+            child: ListNewestBooksItems(),
           ),
         )
       ],

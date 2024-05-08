@@ -8,7 +8,7 @@ part 'featuer_books_state.dart';
 class FeatuerBooksCubit extends Cubit<FeatuerBooksState> {
   FeatuerBooksCubit(this.homeRepo) : super(FeatuerBooksInitial());
   final HomeRepo homeRepo;
-  featchFeatureBooks() async {
+  Future<void> featchFeatureBooks() async {
     emit(FeatuerBooksLoading());
     var result = await homeRepo.fetchFeatureBooks();
     result.fold((faliure) {

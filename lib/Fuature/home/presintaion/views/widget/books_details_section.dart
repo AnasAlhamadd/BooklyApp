@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:untitled1/Fuature/home/presintaion/views/widget/book_items.dart';
-import 'package:untitled1/Fuature/home/presintaion/views/widget/priceandrating_book.dart';
+import 'package:untitled1/Fuature/home/data/model/bookmodel/item.dart';
+import 'package:untitled1/Fuature/home/presintaion/views/widget/custom_book_items.dart';
+import 'package:untitled1/Fuature/home/presintaion/views/widget/customcountry_countpage.dart';
 import 'package:untitled1/constant.dart';
 import 'package:untitled1/core/helper/styles.dart';
 import 'package:untitled1/core/widget/custom_button.dart';
 
 class BooksDetailsSection extends StatelessWidget {
-  const BooksDetailsSection({super.key});
-
+  const BooksDetailsSection({super.key, required this.item});
+  final Item item;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -15,13 +16,17 @@ class BooksDetailsSection extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(
               horizontal: MediaQuery.of(context).size.width * 0.2),
-          child: const CustomBookItems(),
+          child: CustomBookItems(
+              imageUrl: item.volumeInfo.imageLinks.smallThumbnail),
         ),
-        const Padding(
-          padding: EdgeInsets.only(top: 15.0, bottom: 5.0),
+        Padding(
+          padding: const EdgeInsets.only(top: 15.0, bottom: 5.0),
           child: Text(
-            "The Jungle Book",
-            style: Styles.styles33,
+            item.volumeInfo.title!,
+            style: Styles.styles33.copyWith(
+                // overflow: TextOverflow.ellipsis,
+                ),
+            textAlign: TextAlign.center,
           ),
         ),
         Padding(
@@ -29,7 +34,7 @@ class BooksDetailsSection extends StatelessWidget {
           child: Opacity(
             opacity: 0.7,
             child: Text(
-              'Rudiard kilping',
+              item.volumeInfo.authors?[0] ?? '',
               style: Styles.styles24.copyWith(
                 fontFamily: kFontfamily,
                 fontStyle: FontStyle.italic,
@@ -37,7 +42,10 @@ class BooksDetailsSection extends StatelessWidget {
             ),
           ),
         ),
-        const CustomRatingBook(),
+        CustomCountryandPageCount(
+          countPage: item.volumeInfo.pageCount ?? 0,
+          country: item.accessInfo!.country!,
+        ),
         const SizedBox(
           height: 20,
         ),
@@ -55,7 +63,7 @@ class BooksDetailsSection extends StatelessWidget {
                     topLeft: Radius.circular(12.0),
                     bottomLeft: Radius.circular(12.0),
                   )),
-                  textButton: '19.99',
+                  textButton: 'Free',
                 ),
               ),
               Expanded(
@@ -68,7 +76,7 @@ class BooksDetailsSection extends StatelessWidget {
                     topRight: Radius.circular(12.0),
                     bottomRight: Radius.circular(12.0),
                   )),
-                  textButton: 'Free Privew',
+                  textButton: 'Privew',
                 ),
               ),
             ],

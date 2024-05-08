@@ -24,14 +24,16 @@ class ServerFaliure extends Faliure {
             "Bad Certificate with Api Server  ,Plase Try Later ! ");
       case DioExceptionType.badResponse:
         return ServerFaliure.fromResponce(
-            dioException.response!.statusCode!, dioException.response);
+          dioException.response!.statusCode!,
+          dioException.response!.data,
+        );
       case DioExceptionType.cancel:
         return ServerFaliure("Cancel with Api Server  ,Plase Try Later !");
       case DioExceptionType.connectionError:
         return ServerFaliure(
             "Connection Error with Api Server  , Please check your internet connection");
       case DioExceptionType.unknown:
-        if (dioException.message!.contains('socket Exception')) {
+        if (dioException.message!.contains('SocketException')) {
           return ServerFaliure(
               'No Internt Connection , Plase check your internet connection And try again');
         }

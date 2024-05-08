@@ -1,26 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
-import 'package:untitled1/Fuature/home/presintaion/views/widget/book_items.dart';
-import 'package:untitled1/Fuature/home/presintaion/views/widget/priceandrating_book.dart';
+import 'package:untitled1/Fuature/home/data/model/bookmodel/item.dart';
+import 'package:untitled1/Fuature/home/presintaion/views/widget/custom_book_items.dart';
+import 'package:untitled1/Fuature/home/presintaion/views/widget/customcountry_countpage.dart';
 import 'package:untitled1/constant.dart';
 import 'package:untitled1/core/helper/router.dart';
 import 'package:untitled1/core/helper/styles.dart';
 
-class BestSelleViewItems extends StatelessWidget {
-  const BestSelleViewItems({super.key});
-
+class NewestBooksView extends StatelessWidget {
+  const NewestBooksView({super.key, required this.items});
+  final Item items;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        context.push(AppRouter.bookdetailes);
-      },
-      child: SizedBox(
-        height: 130,
+    return SizedBox(
+      height: 130,
+      child: GestureDetector(
+        onTap: () {
+          context.push(AppRouter.bookdetailes, extra: items);
+        },
         child: Row(
           children: [
-            const CustomBookItems(),
+            CustomBookItems(
+              imageUrl: items.volumeInfo.imageLinks.smallThumbnail,
+            ),
             const SizedBox(
               width: 20,
             ),
@@ -31,7 +34,7 @@ class BestSelleViewItems extends StatelessWidget {
                   SizedBox(
                     width: 200,
                     child: Text(
-                      'Harry potter and the goblet of fire',
+                      items.volumeInfo.title!,
                       style: Styles.styles24.copyWith(
                         fontFamily: kFontfamily,
                       ),
@@ -39,18 +42,21 @@ class BestSelleViewItems extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  Text('jk_roaling',
+                  Text(items.volumeInfo.authors![0],
                       style: Styles.styles16.copyWith(fontFamily: kFontfamily)),
                   Expanded(
                     child: Row(
                       children: [
                         Text(
-                          '19.99€',
+                          'Free',
                           style:
                               Styles.styles18.copyWith(fontFamily: kFontfamily),
                         ),
                         const Spacer(),
-                        const CustomRatingBook(),
+                        CustomCountryandPageCount(
+                          countPage: items.volumeInfo.pageCount!,
+                          country: items.accessInfo!.country!,
+                        )
                       ],
                     ),
                   )
