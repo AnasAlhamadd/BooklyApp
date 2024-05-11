@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:untitled1/Fuature/home/data/model/bookmodel/item.dart';
-import 'package:untitled1/Fuature/home/presintaion/manager/feature_similler_books_items.dart/similler_boks_items_cubit.dart';
-import 'package:untitled1/Fuature/home/presintaion/views/widget/book_detailes_view_app_bar.dart';
-import 'package:untitled1/Fuature/home/presintaion/views/widget/books_details_section.dart';
-import 'package:untitled1/Fuature/home/presintaion/views/widget/simmler_books_section.dart';
+import 'package:untitled1/Fuature/books/data/model/bookmodel/item.dart';
+import 'package:untitled1/Fuature/books/presintaion/manager/feature_similler_books_items.dart/similler_boks_items_cubit.dart';
+import 'package:untitled1/Fuature/books/presintaion/views/widget/book_detailes_view_app_bar.dart';
+import 'package:untitled1/Fuature/books/presintaion/views/widget/books_details_section.dart';
+import 'package:untitled1/Fuature/books/presintaion/views/widget/simmler_books_section.dart';
 import 'package:untitled1/constant.dart';
 
 class BookdetailesViewBody extends StatefulWidget {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:untitled1/Fuature/home/data/repo/home_repo_implement.dart';
-import 'package:untitled1/Fuature/home/presintaion/manager/feature_books/featuer_books_cubit.dart';
-import 'package:untitled1/Fuature/home/presintaion/manager/feature_newest_books.dart/feature_newest_books_cubit.dart';
+import 'package:untitled1/Fuature/books/data/repo/books_repo_implement.dart';
+import 'package:untitled1/Fuature/books/presintaion/manager/feature_books/featuer_books_cubit.dart';
+import 'package:untitled1/Fuature/books/presintaion/manager/feature_newest_books.dart/feature_newest_books_cubit.dart';
 import 'package:untitled1/constant.dart';
 import 'package:untitled1/core/helper/router.dart';
 import 'package:untitled1/core/helper/services_locator.dart';
