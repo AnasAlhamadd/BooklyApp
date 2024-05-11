@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled1/Fuature/home/presintaion/views/widget/search_books_items_view.dart';
+import 'package:untitled1/Fuature/search/prisintaion/views/widgets/search_books_items_view_body.dart';
 
 class SearchBooksItemsView extends StatelessWidget {
   const SearchBooksItemsView({super.key});

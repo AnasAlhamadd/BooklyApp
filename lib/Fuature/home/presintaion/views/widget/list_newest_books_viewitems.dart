@@ -13,8 +13,8 @@ class ListNewestBooksItems extends StatelessWidget {
       builder: (context, state) {
         if (state is FeatureNewestBooksSuccess) {
           return ListView.builder(
+            physics: const NeverScrollableScrollPhysics(),
             padding: EdgeInsets.zero,
-            physics: const BouncingScrollPhysics(),
             itemCount: state.books[0].items!.length,
             itemBuilder: (context, index) => Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0),
