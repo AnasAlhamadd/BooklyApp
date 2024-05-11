@@ -23,7 +23,9 @@ class FeatureBookListItems extends StatelessWidget {
           ),
         );
       } else if (state is FeatuerBooksFaliure) {
-        return CustomWidgetError(errMesage: state.errMesage);
+        return CustomWidgetError(
+          errMesage: state.errMesage,
+        );
       }
       return const Center(
         child: CircularProgressIndicator(),

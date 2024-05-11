@@ -8,20 +8,20 @@ import 'package:untitled1/constant.dart';
 import 'package:untitled1/core/helper/router.dart';
 import 'package:untitled1/core/helper/styles.dart';
 
-class NewestBooksView extends StatelessWidget {
-  const NewestBooksView({super.key, required this.items});
+class SearchBooksView extends StatelessWidget {
+  const SearchBooksView({super.key, required this.items});
   final Item items;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 130,
-      child: GestureDetector(
-        onTap: () {
-          context.push(
-            AppRouter.bookdetailes,
-            extra: items,
-          );
-        },
+    return GestureDetector(
+      onTap: () {
+        context.push(
+          AppRouter.bookdetailes,
+          extra: items,
+        );
+      },
+      child: SizedBox(
+        height: 130,
         child: Row(
           children: [
             CustomBookItems(
@@ -45,8 +45,12 @@ class NewestBooksView extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  Text(items.volumeInfo.authors![0],
-                      style: Styles.styles16.copyWith(fontFamily: kFontfamily)),
+                  Text(
+                    items.volumeInfo.authors?[0] ?? '',
+                    style: Styles.styles16.copyWith(
+                      fontFamily: kFontfamily,
+                    ),
+                  ),
                   Expanded(
                     child: Row(
                       children: [

@@ -4,8 +4,8 @@ import 'package:untitled1/Fuature/home/presintaion/manager/feature_newest_books.
 import 'package:untitled1/Fuature/home/presintaion/views/widget/newest_books_view_items.dart';
 import 'package:untitled1/core/widget/custom_error.dart';
 
-class ListNewestBooksItems extends StatelessWidget {
-  const ListNewestBooksItems({super.key});
+class ListSearshBooksItems extends StatelessWidget {
+  const ListSearshBooksItems({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class ListNewestBooksItems extends StatelessWidget {
         if (state is FeatureNewestBooksSuccess) {
           return ListView.builder(
             padding: EdgeInsets.zero,
-            physics: const BouncingScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: state.books[0].items!.length,
             itemBuilder: (context, index) => Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0),

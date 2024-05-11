@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 class BookdetailesViewAppBar extends StatelessWidget {
   const BookdetailesViewAppBar({super.key});
@@ -9,7 +10,9 @@ class BookdetailesViewAppBar extends StatelessWidget {
     return Row(
       children: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            context.pop();
+          },
           icon: const Icon(
             Icons.close,
             size: 30,

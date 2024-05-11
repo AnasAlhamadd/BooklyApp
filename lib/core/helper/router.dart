@@ -1,7 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:untitled1/Fuature/home/data/model/bookmodel/item.dart';
+import 'package:untitled1/Fuature/home/data/repo/home_repo.dart';
 import 'package:untitled1/Fuature/home/data/repo/home_repo_implement.dart';
+import 'package:untitled1/Fuature/home/presintaion/manager/feature_search_book/cubit/search_book_cubit.dart';
 import 'package:untitled1/Fuature/home/presintaion/manager/feature_similler_books_items.dart/similler_boks_items_cubit.dart';
 import 'package:untitled1/Fuature/home/presintaion/views/book_detailes_view.dart';
 import 'package:untitled1/Fuature/home/presintaion/views/home_page.dart';
@@ -37,7 +39,12 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: searchbooks,
-        builder: (context, state) => const SearchBooksItemsView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => SearchBookCubit(
+            getit.get<HomeRepoImplement>(),
+          ),
+          child: const SearchBooksItemsView(),
+        ),
       ),
     ],
   );

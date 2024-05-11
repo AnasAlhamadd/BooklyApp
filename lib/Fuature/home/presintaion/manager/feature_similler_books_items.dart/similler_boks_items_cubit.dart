@@ -9,9 +9,9 @@ class SimillerBoksItemsCubit extends Cubit<SimillerBoksItemsState> {
   SimillerBoksItemsCubit(this.homeRepo) : super(SimillerBoksItemsInitial());
   final HomeRepo homeRepo;
 
-  Future<void> fetchSimillerBoksItems({required String categore}) async {
+  Future<void> fetchSimillerBoksItems() async {
     emit(SimillerBoksItemsLoading());
-    var result = await homeRepo.fetchSimmilerBooks(categore: categore);
+    var result = await homeRepo.fetchSimmilerBooks();
     result.fold((faliure) {
       emit(
         SimillerBoksItemsFaliure(errMesage: faliure.errMesage),

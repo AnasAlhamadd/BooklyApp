@@ -11,7 +11,7 @@ class HomePageViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
-      physics: const BouncingScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       slivers: [
         SliverToBoxAdapter(
           child: Column(
@@ -32,7 +32,9 @@ class HomePageViewBody extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Text(
                   'Newest Books',
-                  style: Styles.styles30.copyWith(fontFamily: kFontfamily),
+                  style: Styles.styles30.copyWith(
+                    fontFamily: kFontfamily,
+                  ),
                 ),
               ),
               const SizedBox(

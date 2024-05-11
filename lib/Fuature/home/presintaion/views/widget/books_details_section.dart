@@ -3,6 +3,7 @@ import 'package:untitled1/Fuature/home/data/model/bookmodel/item.dart';
 import 'package:untitled1/Fuature/home/presintaion/views/widget/custom_book_items.dart';
 import 'package:untitled1/Fuature/home/presintaion/views/widget/customcountry_countpage.dart';
 import 'package:untitled1/constant.dart';
+import 'package:untitled1/core/helper/functions/custom_lunsh_url.dart';
 import 'package:untitled1/core/helper/styles.dart';
 import 'package:untitled1/core/widget/custom_button.dart';
 
@@ -68,7 +69,9 @@ class BooksDetailsSection extends StatelessWidget {
               ),
               Expanded(
                 child: BookAction(
-                  onPressed: () {},
+                  onPressed: () {
+                    customLunshUrl(context, item.volumeInfo.previewLink);
+                  },
                   colorTextButton: Colors.white,
                   backgroundColor: const Color(0xffEf8262),
                   outlineInputBorder: const OutlineInputBorder(
@@ -76,7 +79,7 @@ class BooksDetailsSection extends StatelessWidget {
                     topRight: Radius.circular(12.0),
                     bottomRight: Radius.circular(12.0),
                   )),
-                  textButton: 'Privew',
+                  textButton: getText(),
                 ),
               ),
             ],
@@ -84,5 +87,13 @@ class BooksDetailsSection extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  String getText() {
+    if (item.volumeInfo.previewLink != null) {
+      return 'Preview';
+    } else {
+      return 'Not Available';
+    }
   }
 }

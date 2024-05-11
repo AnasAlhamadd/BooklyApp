@@ -20,9 +20,7 @@ class BookdetailesViewBody extends StatefulWidget {
 class _BookdetailesViewBodyState extends State<BookdetailesViewBody> {
   @override
   void initState() {
-    BlocProvider.of<SimillerBoksItemsCubit>(context).fetchSimillerBoksItems(
-      categore: widget.item.volumeInfo.categories![0],
-    );
+    BlocProvider.of<SimillerBoksItemsCubit>(context).fetchSimillerBoksItems();
     super.initState();
   }
 
