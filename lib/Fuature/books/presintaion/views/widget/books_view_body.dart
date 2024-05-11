@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:untitled1/Fuature/home/presintaion/views/widget/custom_app_bar.dart';
-import 'package:untitled1/Fuature/home/presintaion/views/widget/feature_books_listitems.dart';
-import 'package:untitled1/Fuature/home/presintaion/views/widget/list_newest_books_viewitems.dart';
+import 'package:shimmer/shimmer.dart';
+import 'package:untitled1/Fuature/books/presintaion/views/widget/custom_app_bar.dart';
+import 'package:untitled1/Fuature/books/presintaion/views/widget/feature_books_listitems.dart';
+import 'package:untitled1/Fuature/books/presintaion/views/widget/list_newest_books_viewitems.dart';
 import 'package:untitled1/constant.dart';
 import 'package:untitled1/core/helper/styles.dart';
 
-class HomePageViewBody extends StatelessWidget {
-  const HomePageViewBody({super.key});
+class BooksViewBody extends StatelessWidget {
+  const BooksViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {

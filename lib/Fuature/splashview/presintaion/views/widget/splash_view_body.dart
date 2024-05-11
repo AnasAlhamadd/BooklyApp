@@ -25,13 +25,12 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   void navigatehomePage() {
     Future.delayed(const Duration(seconds: 2), () {
-      return context.go(AppRouter.home);
+      return context.go(AppRouter.books);
     });
   }
 
   @override
   void dispose() {
-    // TODO: implement dispose
     animationController.dispose();
     super.dispose();
   }

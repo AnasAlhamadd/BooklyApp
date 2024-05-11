@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:untitled1/Fuature/home/presintaion/manager/feature_newest_books.dart/feature_newest_books_cubit.dart';
-import 'package:untitled1/Fuature/home/presintaion/views/widget/newest_books_view_items.dart';
+import 'package:untitled1/Fuature/books/presintaion/manager/feature_newest_books.dart/feature_newest_books_cubit.dart';
+import 'package:untitled1/Fuature/books/presintaion/views/widget/newest_books_view_items.dart';
 import 'package:untitled1/core/widget/custom_error.dart';
 
-class ListSearshBooksItems extends StatelessWidget {
-  const ListSearshBooksItems({super.key});
+class ListNewestBooksItems extends StatelessWidget {
+  const ListNewestBooksItems({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +13,8 @@ class ListSearshBooksItems extends StatelessWidget {
       builder: (context, state) {
         if (state is FeatureNewestBooksSuccess) {
           return ListView.builder(
-            padding: EdgeInsets.zero,
             physics: const NeverScrollableScrollPhysics(),
+            padding: EdgeInsets.zero,
             itemCount: state.books[0].items!.length,
             itemBuilder: (context, index) => Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0),

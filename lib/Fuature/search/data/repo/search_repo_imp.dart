@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:untitled1/Fuature/home/data/model/bookmodel/bookmodel.dart';
+import 'package:untitled1/Fuature/books/data/model/bookmodel/bookmodel.dart';
 import 'package:untitled1/Fuature/search/data/repo/search_repo.dart';
 import 'package:untitled1/core/errors/faliure.dart';
 import 'package:untitled1/core/services/api_services.dart';

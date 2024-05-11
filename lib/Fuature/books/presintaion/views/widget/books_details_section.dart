@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:untitled1/Fuature/home/data/model/bookmodel/item.dart';
-import 'package:untitled1/Fuature/home/presintaion/views/widget/custom_book_items.dart';
-import 'package:untitled1/Fuature/home/presintaion/views/widget/customcountry_countpage.dart';
+import 'package:untitled1/Fuature/books/data/model/bookmodel/item.dart';
+import 'package:untitled1/Fuature/books/presintaion/views/widget/custom_book_items.dart';
+import 'package:untitled1/Fuature/books/presintaion/views/widget/customcountry_countpage.dart';
 import 'package:untitled1/constant.dart';
 import 'package:untitled1/core/helper/functions/custom_lunsh_url.dart';
 import 'package:untitled1/core/helper/styles.dart';
